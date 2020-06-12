@@ -28,7 +28,7 @@ contours = [cont for cont in contours if cv.contourArea(cont)>550]
 
 colorimg = cv.cvtColor(filterdImg, cv.COLOR_GRAY2RGB)
 hsv = cv.cvtColor(colorimg, cv.COLOR_RGB2HSV)
-
+"""
 for cnt in contours:   
     mask = np.zeros(filterdImg.shape, np.uint8)
     cv.drawContours(mask, [cnt],0,(255,255,255),-2)
@@ -48,7 +48,7 @@ h,s,v = cv.split(thrimg)
 #plt.imshow(pltimg, 'hsv')
 
 
-Z = pltimg.reshape((-1,3))
+Z = h.reshape((-1,3))
 Z = np.float32(Z)
 
 criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 10, 1.0)
@@ -56,10 +56,10 @@ K = 4
 ret,label,center=cv.kmeans(Z,K,None,criteria,10,cv.KMEANS_RANDOM_CENTERS)
 center = np.uint8(center)
 res = center[label.flatten()]
-res2 = res.reshape((img.shape))
-
+res2 = res.reshape((h.shape))
+cv.namedWindow('res2', cv.WINDOW_NORMAL)
 cv.imshow('res2',res2)
-"""
+
 
 
 plt.show()

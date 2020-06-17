@@ -28,11 +28,11 @@ void loop() {
   if (digitalRead(BUTTON1)) { // button (SW1) is pressed
     digitalWrite(LED, HIGH);
     // fill sample array
-    for (int i=0; i<256;hD  i++) {      // fill the samples array with a pure sinus
+    for (int i=0; i<256;  i++) {      // fill the samples array with a pure sinus
 
       //samples[2*i] = sin(i*0.2);  // real part
-      //samples[2*i] = (i%32 < 16 ?  1: -1);    // real part
-      samples[2*i] = (i%32)/16.0 -1;      // real part
+      samples[2*i] = (i%32 < 16 ?  1: -1);    // real part
+      //samples[2*i] = (i%32)/16.0 -1;      // real part
 
       samples[2*i+1] = 0.0;          // imaginary part
       timeDomain[i] = samples[2*i];

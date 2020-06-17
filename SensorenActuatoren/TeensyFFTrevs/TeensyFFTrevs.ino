@@ -45,7 +45,7 @@ void loop() {
     //Calculating back from complex frequency Domain to time Domain.
     for (int i=0; i<FFT_SIZE; i++) timeDomain[i] = 0.0;
     for (int i=0; i<FFT_SIZE; i++) {
-      for (int j=0; j<FFT_SIZE; j++) {
+      for (int j=0; j<100; j++) {
         timeDomain[i] += samples[2*j]*cos(2*PI*i*j/FFT_SIZE)/FFT_SIZE - samples[2*j+1]*sin(2*PI*i*j/FFT_SIZE)/FFT_SIZE;
       }
     }
